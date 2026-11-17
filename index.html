@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+  if (sessionStorage.getItem("loggedIn") !== "true") {
+    window.location.href = "login.html";
+  }
+</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hospital Patient Record Management System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+  <button id="logoutBtn">Logout</button>
+  <h1>🏥 Hospital Patient Record Management System</h1>
+  <p>C Programming Capstone – Web Prototype | Logged in as: <b id="whoami"></b></p>
+</header>
+
+  <main>
+    <section class="card">
+      <h2>Add Patient</h2>
+      <form id="patientForm">
+        <input type="number" id="pid" placeholder="Patient ID" required>
+        <input type="text" id="name" placeholder="Full Name" required>
+        <input type="number" id="age" placeholder="Age" required>
+        <select id="gender" required>
+          <option value="">Gender</option>
+          <option>Male</option>
+          <option>Female</option>
+          <option>Other</option>
+        </select>
+        <input type="text" id="disease" placeholder="Disease / Diagnosis" required>
+        <button type="submit">Add Patient</button>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>Patient Records</h2>
+      <input type="text" id="search" placeholder="🔍 Search by ID or name...">
+      <table>
+        <thead>
+          <tr><th>ID</th><th>Name</th><th>Age</th><th>Gender</th><th>Disease</th><th>Action</th></tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    <p>Backend logic written in C (see <code>c-backend/main.c</code>) • Prototype by [Your Name]</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
